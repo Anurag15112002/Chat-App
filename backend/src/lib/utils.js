@@ -6,11 +6,12 @@ export const generateToken = (userId, res) => {
   });
 
   res.cookie("jwt", token, {
-    maxAge: 7 * 24 * 60 * 60 * 1000, // MS
-    httpOnly: false, //false prevent XSS attacks cross-site scripting attacks
-    sameSite: "strict", // CSRF attacks cross-site request forgery attacks
-    
-  });
+  maxAge: 7 * 24 * 60 * 60 * 1000, // MS
+  httpOnly: true, // recommended for security
+  sameSite: "lax", // or "none" if cross-origin
+  secure: process.env.NODE_ENV === "production", // true in production
+});
+
 
   return token;
 };
