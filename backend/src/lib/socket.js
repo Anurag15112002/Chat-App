@@ -8,7 +8,7 @@ const server = http.createServer(app);
 // Set up CORS and Socket.IO server configuration
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173"],
+    origin: ["https://chat-app-user-gppn.onrender.com"],
   },
   pingTimeout: 60000, // Increase the timeout (default is 50000ms)
   pingInterval: 25000, // Ping every 25 seconds to keep the connection alive
